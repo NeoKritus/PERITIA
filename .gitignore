@@ -1,0 +1,60 @@
+﻿# PERITIA -- .gitignore
+
+# --- Environment / Secrets (NEVER commit) ---
+.env
+*.env
+.env.*
+!.env.example
+!backend/.env.example
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+dist/
+build/
+venv/
+.venv/
+env/
+
+# --- Node / Frontend ---
+node_modules/
+frontend/node_modules/
+frontend/dist/
+frontend/.env
+frontend/.env.local
+*.tsbuildinfo
+.vite/
+
+# --- Database / Storage ---
+peritia_db.json
+backend/peritia_db.json
+rag_index.faiss
+*.faiss
+rag_chunks.pkl
+*.pkl
+
+# --- Uploads / Generated files ---
+backend/uploads/
+backend/data/uploads/
+*.pdf
+*.docx
+*.doc
+
+# --- IDE / Editor ---
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- Logs ---
+*.log
+logs/
+backend/logs/

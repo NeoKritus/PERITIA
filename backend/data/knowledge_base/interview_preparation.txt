@@ -1,0 +1,79 @@
+Interview Preparation Strategies and General Guidance
+
+CATEGORY: Interview Preparation and Career Coaching
+APPLICABLE TO: All Roles and Experience Levels
+
+=== BEFORE THE INTERVIEW ===
+
+RESEARCH AND PREPARATION:
+Research the company thoroughly before any interview. Understand their business model, key products, recent news, and engineering culture. Review their engineering blog, GitHub repositories if public, and job posting carefully. Identify specific technical skills and competencies they value and prepare examples demonstrating those areas.
+
+RESUME REVIEW:
+Know every item on your resume in depth. Be prepared to expand on any bullet point into a 2-minute story. Quantify impact wherever possible. If you claim a technology, ensure you can answer intermediate questions about it. Remove anything you cannot discuss confidently.
+
+CODING PRACTICE:
+For technical roles: practice on LeetCode, HackerRank, or CodeSignal. Focus on data structures (arrays, linked lists, trees, hash tables, graphs), algorithms (sorting, searching, dynamic programming, BFS/DFS), and system design for senior roles. Practice writing code without an IDE — use pen/paper or a plain text editor.
+
+=== DURING THE INTERVIEW ===
+
+TECHNICAL INTERVIEWS:
+Think aloud throughout the problem-solving process. Interviewers assess your thinking, not just the final answer. Clarify requirements before diving in. Start with brute force, then optimize. Discuss time and space complexity. Test your solution with examples including edge cases. If stuck, verbalize your thinking and ask clarifying questions.
+
+BEHAVIORAL INTERVIEWS:
+Use the STAR framework for behavioral questions. Be specific and concrete. Use "I" not "we" to clarify your personal contribution. Keep answers concise (2-3 minutes). Quantify impact: percentages, dollar amounts, time saved, users affected. Prepare 8-10 diverse STAR stories covering leadership, failure, conflict, learning, teamwork, and impact.
+
+GENERAL CONDUCT:
+Be punctual (arrive 10 minutes early for in-person, test tech 15 minutes early for virtual). Maintain professional but approachable tone. Listen carefully before answering. It is acceptable to take a moment to think. Be honest about what you do not know — demonstrate how you would find the answer. Show genuine enthusiasm for the role.
+
+=== SYSTEM DESIGN INTERVIEWS ===
+
+FRAMEWORK FOR SYSTEM DESIGN:
+1. Clarify requirements: functional (what the system does) and non-functional (scale, latency, availability)
+2. Estimate scale: users, requests per second, data volume, growth rate
+3. Define API: endpoints, request/response contracts
+4. High-level architecture: major components and their interactions
+5. Data model: schema, database choice (SQL vs NoSQL), justification
+6. Deep dive: focus on the most complex or interesting component
+7. Address bottlenecks: single points of failure, scaling challenges, caching strategy
+
+KEY CONCEPTS TO KNOW:
+- Load balancers: distribute traffic, improve availability
+- Caching: reduce database load, improve latency (Redis, CDN)
+- Database replication and sharding: horizontal scaling, read replicas
+- Message queues: decouple services, handle load spikes (Kafka, RabbitMQ)
+- CAP theorem: consistency, availability, partition tolerance — you can only guarantee 2
+- Consistent hashing: distribute load evenly across servers
+- Rate limiting: protect services from abuse
+
+=== SALARY NEGOTIATION ===
+
+NEGOTIATION PRINCIPLES:
+Research market rates before negotiating using Glassdoor, Levels.fyi, LinkedIn Salary, and professional networks. Never accept the first offer without negotiating. Express enthusiasm for the role before negotiating. Provide a range anchored at the higher end. Consider the full package: base salary, equity, bonus, benefits, remote flexibility, vacation, growth opportunities.
+
+COUNTER-OFFER SCRIPTS:
+"Thank you for the offer — I am very excited about this opportunity. Based on my research and experience, I was expecting something closer to [X]. Is there flexibility to move in that direction?" Always have a specific number, not just "more." Get all offers in writing. Take 24-48 hours to consider.
+
+=== POST-INTERVIEW ===
+
+FOLLOW-UP:
+Send a thank-you email within 24 hours. Reference specific conversation points to show you were engaged. Reiterate your interest in the role. This differentiates you from 90% of candidates who do not follow up. For panel interviews, personalize each email to the individual interviewer.
+
+IF REJECTED:
+Request feedback — some companies provide it, many do not. Treat it as learning. Identify which areas to strengthen. Many candidates have multiple rounds with the same company. Stay professional; the hiring manager may recruit you again. Rejection is rarely personal — it reflects fit and timing.
+
+=== EXPERIENCE LEVEL EXPECTATIONS ===
+
+ENTRY LEVEL:
+Strong fundamentals in data structures and algorithms, one programming language proficiency, eagerness to learn, ability to work in a team, basic knowledge of version control and software development practices. Projects demonstrating applied skills. Growth mindset and coachability are valued over deep experience.
+
+JUNIOR (1-2 years):
+Can work independently on well-defined tasks. Good debugging skills. Beginning to understand system design and code architecture. Starting to contribute to code reviews. Demonstrates proactive communication about blockers. Reliable delivery on smaller features.
+
+MID-LEVEL (3-5 years):
+Can scope and execute complete features independently. Mentors junior engineers. Understands system tradeoffs. Participates in architectural discussions. Reliable delivery with good quality. Beginning to influence technical direction. Strong communication with stakeholders.
+
+SENIOR (5+ years):
+Defines technical direction and architecture. Mentors team broadly. Can scope and execute multi-quarter initiatives. Strong influence cross-functionally. Holds high quality bar for the team. Identified and addresses systemic technical problems. Demonstrates business impact of technical work.
+
+LEAD / PRINCIPAL:
+Sets technical strategy across multiple teams or the organization. Deep expertise in multiple domains. Influences hiring and culture. Can drive large-scale migrations, platform changes, and engineering process improvements. External presence (conference talks, open source, blog posts). Strong cross-functional alignment at senior leadership level.

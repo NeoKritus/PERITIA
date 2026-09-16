@@ -1,0 +1,61 @@
+Machine Learning Engineer Interview Questions and Guidance
+
+ROLE: Machine Learning Engineer
+CATEGORY: Technical
+DIFFICULTY: Mid to Senior
+
+=== MACHINE LEARNING FUNDAMENTALS ===
+
+Q: Explain the bias-variance tradeoff.
+A: Bias is the error from incorrect model assumptions (underfitting). Variance is the error from sensitivity to fluctuations in the training data (overfitting). High bias: model too simple, misses patterns. High variance: model too complex, memorizes noise. Total error = Bias² + Variance + Irreducible error. You cannot simultaneously minimize both; you choose the sweet spot using validation curves. Regularization (L1, L2), more data, and cross-validation help manage this tradeoff.
+
+Q: What is the difference between L1 and L2 regularization?
+A: L1 (Lasso) adds the sum of absolute values of coefficients to the loss function. It produces sparse models (many coefficients become exactly zero), useful for feature selection. L2 (Ridge) adds the sum of squared coefficients. It shrinks coefficients toward zero but rarely eliminates them, better when all features contribute. Elastic Net combines both. Use L1 when you suspect many features are irrelevant. Use L2 when most features are relevant.
+
+Q: How do you handle imbalanced datasets?
+A: Strategies at the data level: oversampling minority class (SMOTE), undersampling majority class. At the algorithm level: class weights (cost-sensitive learning), threshold adjustment. Evaluation level: use precision, recall, F1, AUC-ROC instead of accuracy. Ensemble methods: balanced bagging, EasyEnsemble. Choice depends on dataset size and whether false positives or false negatives are more costly. Always start by understanding the business impact of each error type.
+
+Q: What is cross-validation and why is it important?
+A: Cross-validation evaluates model performance on unseen data without wasting data on a separate test set. K-fold CV splits data into k subsets, trains on k-1, validates on 1, and rotates. Reports average and std dev of metric. Important because: prevents overfitting to a single train/test split, gives better estimate of generalization performance, helps with hyperparameter tuning (nested CV). Use stratified k-fold for classification to maintain class distribution in each fold.
+
+Q: Explain gradient descent and its variants.
+A: Gradient descent minimizes a loss function by iteratively moving in the direction of steepest descent (negative gradient). Batch GD: uses entire training set per update, stable but slow. Stochastic GD (SGD): uses one sample per update, noisy but fast, can escape local minima. Mini-batch GD: uses small batches, balances stability and speed. Variants: SGD with momentum accumulates velocity. Adam combines momentum and RMSProp, adapts learning rate per parameter. Adam is the default for deep learning; SGD+momentum can generalize better.
+
+=== DEEP LEARNING ===
+
+Q: Explain how backpropagation works.
+A: Backpropagation computes gradients of the loss function with respect to each weight using the chain rule. Forward pass: compute predictions and loss. Backward pass: compute gradient of loss with respect to output, then propagate gradients backward through each layer using chain rule. Update weights using computed gradients times learning rate. Enables training deep networks by efficiently computing all gradients in one backward pass rather than separately perturbing each weight.
+
+Q: What is the vanishing gradient problem and how is it addressed?
+A: In deep networks, gradients shrink exponentially as they are backpropagated through many layers with sigmoid/tanh activations (derivatives < 1). This makes early layers learn very slowly. Solutions: ReLU activation (gradient is 1 for positive inputs, never saturates). Batch normalization normalizes layer inputs, stabilizing training. Residual connections (skip connections in ResNets) allow gradients to flow directly. Weight initialization (Xavier, He) sets weights to appropriate scale.
+
+Q: What is the difference between CNN, RNN, and Transformer architectures?
+A: CNN (Convolutional Neural Network): processes data with spatial structure via local filters, weight sharing, pooling. Best for images, audio spectrograms. RNN (Recurrent Neural Network): processes sequential data with hidden state capturing temporal dependencies. Suffers from vanishing gradients over long sequences. LSTM/GRU addresses this with gating mechanisms. Transformer: uses self-attention to relate all positions simultaneously, no sequential bottleneck. Parallelizable, captures long-range dependencies. Now dominant for NLP (BERT, GPT) and increasingly vision (ViT).
+
+=== MLOps AND PRODUCTION ===
+
+Q: How do you deploy a machine learning model to production?
+A: Steps: serialize model (pickle, ONNX, SavedModel), build serving API (FastAPI, Flask, TorchServe), containerize (Docker), deploy to cloud (AWS SageMaker, GCP Vertex AI, Azure ML). Production considerations: model versioning, A/B testing new models, monitoring for data drift and model degradation, logging predictions for audit, feature store for consistent feature computation, CI/CD pipeline for retraining. The serving infrastructure must match the latency and throughput requirements of the application.
+
+Q: What is feature drift and model drift? How do you detect and handle them?
+A: Feature drift (data drift): statistical distribution of input features changes over time (e.g., customer demographics shift). Model drift (concept drift): relationship between features and target changes (e.g., what predicts churn changes). Detection: monitor feature distributions (KL divergence, KS test, PSI), track model metrics (accuracy, precision, recall) on recent data, set up alerting. Handling: retrain on recent data, implement online learning, maintain multiple model versions. Schedule regular retraining cadence based on data stability.
+
+Q: What is the difference between online learning and batch learning?
+A: Batch learning trains on a fixed dataset offline, then deploys the static model. Simple, reproducible, but cannot adapt to new patterns without retraining. Online learning updates the model incrementally as new data arrives, enabling adaptation to changing distributions. Useful for recommendation systems, fraud detection, and other streaming scenarios. Challenges: catastrophic forgetting, hyperparameter adaptation, evaluating model quality continuously. Many production systems use mini-batch online learning as a compromise.
+
+=== EVALUATION AND METRICS ===
+
+Q: When would you use precision vs recall as your primary metric?
+A: Precision = TP/(TP+FP): what fraction of positive predictions are correct. High precision is important when false positives are costly (spam detection, where legitimate email being marked spam is harmful). Recall = TP/(TP+FN): what fraction of actual positives are caught. High recall is important when false negatives are costly (cancer screening, fraud detection, where missing a positive is more harmful). F1 balances both. AUC-ROC measures discrimination across all thresholds. Always align the metric with the business cost of each error type.
+
+PREPARATION TIPS FOR MACHINE LEARNING ENGINEERS:
+- Implement ML algorithms from scratch to understand them deeply (linear regression, k-means, decision tree)
+- Practice end-to-end ML projects: data → EDA → feature engineering → modeling → evaluation → deployment
+- Know the full scikit-learn API and PyTorch or TensorFlow basics
+- Study MLOps tools: MLflow, Weights & Biases for experiment tracking
+- Be ready to discuss model performance in business terms, not just accuracy
+- Know SQL and Python for data manipulation
+- Understand distributed computing basics (Spark) for large datasets
+- Study recent papers and techniques: transformers, diffusion models, RLHF
+- Practice system design for ML systems: recommendation engines, fraud detection, search ranking
+- Be prepared to code feature engineering, cross-validation, and model evaluation from scratch

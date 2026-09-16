@@ -1,0 +1,83 @@
+Behavioral and HR Interview Questions and Guidance
+
+CATEGORY: Behavioral / HR / Soft Skills
+APPLICABLE TO: All Roles
+FRAMEWORK: STAR (Situation, Task, Action, Result)
+
+=== BEHAVIORAL QUESTIONS - TEAMWORK AND COLLABORATION ===
+
+Q: Tell me about a time you worked with a difficult team member.
+GUIDANCE: Use STAR format. Describe the situation without blaming the person. Focus on your actions to understand their perspective, find common ground, and resolve the conflict professionally. Demonstrate emotional intelligence, communication skills, and commitment to team success. Result should show a positive resolution and what you learned about managing interpersonal dynamics.
+
+Q: Describe a situation where you had to work with people from different backgrounds or disciplines.
+GUIDANCE: Highlight cross-functional collaboration. Show how you adapted your communication style, bridged knowledge gaps, and aligned different perspectives toward a common goal. Technical candidates should give examples of working with non-technical stakeholders. Demonstrate appreciation for diverse expertise.
+
+Q: Tell me about a time you disagreed with your manager. How did you handle it?
+GUIDANCE: This tests your professional maturity and communication skills. Show that you respectfully expressed your viewpoint with data/reasoning, listened to their perspective, and ultimately committed to the decision even if it differed from your recommendation. Never speak negatively about past managers. Demonstrate that you can influence up without insubordination.
+
+=== BEHAVIORAL QUESTIONS - PROBLEM SOLVING ===
+
+Q: Describe the most challenging technical problem you have solved.
+GUIDANCE: Choose a problem that demonstrates depth, creativity, and impact. Walk through how you diagnosed the problem, explored solutions, chose your approach, implemented it, and measured success. Quantify the impact (reduced latency by X%, saved Y hours per week). Show analytical thinking, persistence, and learning from the experience.
+
+Q: Tell me about a time you failed. What did you learn from it?
+GUIDANCE: Interviewers want to see self-awareness, growth mindset, and accountability. Choose a real failure, take clear ownership (do not blame others or circumstances), describe what you learned, and explain how you applied that learning. This question reveals character more than competence. Avoid trivial failures ("I worked too hard") or failures with no learning.
+
+Q: Describe a time when you had to make a decision with incomplete information.
+GUIDANCE: Show your ability to make structured decisions under uncertainty. Demonstrate: how you gathered available information, assessed risks, made reasonable assumptions (documented them), made a decision, and monitored outcomes. Mention how you updated your decision as new information arrived. This demonstrates comfort with ambiguity, a critical trait for senior roles.
+
+=== BEHAVIORAL QUESTIONS - COMMUNICATION AND LEADERSHIP ===
+
+Q: Tell me about a time you influenced someone without having formal authority.
+GUIDANCE: Shows leadership potential at all levels. Describe how you built credibility through expertise, understood the other person's priorities, framed your proposal in terms of their goals, and earned buy-in. This is critical for cross-functional roles. Result should show measurable impact of the decision or initiative you championed.
+
+Q: Describe a time you had to explain a complex technical concept to a non-technical audience.
+GUIDANCE: Critical for any technical role. Show you understand that communication is about the audience, not about demonstrating your knowledge. Describe how you diagnosed what the audience needed to know, chose appropriate analogies, structured the explanation from simple to complex, checked for understanding, and adapted based on reactions. Quantify the outcome if possible.
+
+Q: Tell me about a time you led a project or initiative.
+GUIDANCE: Even for individual contributors, show leadership capacity. Cover: how you organized the work, motivated others, handled obstacles, managed timelines, communicated status, and delivered results. Be specific about your contribution vs the team's. Show initiative and ownership without taking credit for others' work.
+
+=== BEHAVIORAL QUESTIONS - ADAPTABILITY AND GROWTH ===
+
+Q: Tell me about a time you had to quickly learn a new technology or skill.
+GUIDANCE: Demonstrates learning agility, critical in fast-moving technical fields. Describe the situation (new technology, tight deadline), your learning strategy (documentation, tutorials, mentorship, experimentation), how quickly you became productive, and the outcome. Show genuine enthusiasm for learning, not just compliance. This also reveals how you approach unknowns.
+
+Q: Describe a situation where requirements changed mid-project. How did you handle it?
+GUIDANCE: Tests adaptability and professional handling of ambiguity. Show that you: understood the reasons for the change without frustration, assessed impact on timeline and scope, communicated transparently with stakeholders, reprioritized effectively, and delivered a successful outcome. Demonstrate that you can navigate change without losing quality or morale.
+
+=== HR QUESTIONS ===
+
+Q: Why do you want to work for this company?
+GUIDANCE: Research the company thoroughly: products, culture, engineering blog, recent news, mission. Show genuine alignment between their work and your interests/goals. Mention specific aspects (technology stack, impact, culture, growth opportunity). Never give generic answers about competitive salaries or prestige. Demonstrate that you have done your homework and have genuine reasons for interest.
+
+Q: Where do you see yourself in 5 years?
+GUIDANCE: Show ambition without being unrealistic. Align your goals with growth opportunities at the company. For technical roles: focus on deepening expertise, taking on larger technical challenges, and potentially growing into a tech lead or senior architect role. Avoid appearing only interested in management or leaving the company quickly. Demonstrate that you are motivated by the work itself, not just career advancement.
+
+Q: What are your greatest strengths?
+GUIDANCE: Choose 2-3 genuine strengths directly relevant to the role. Back each with a specific example. Avoid vague claims ("I am a hard worker"). Good examples: "I communicate technical concepts clearly to diverse audiences — in my last role, I was regularly asked to present findings to the executive team because of this." Strengths should be role-relevant and demonstrated, not just claimed.
+
+Q: What are your weaknesses?
+GUIDANCE: Never say "I have no weaknesses" or give a disguised strength ("I work too hard"). Choose a genuine weakness you are actively working to improve. Show self-awareness and growth. Example: "I used to struggle with delegating tasks because I wanted to maintain quality control. I have been actively working on this by building clearer specifications and review processes, which has allowed me to scale my impact significantly."
+
+Q: What is your expected salary?
+GUIDANCE: Research market rates for the role, level, and location (Glassdoor, Levels.fyi, LinkedIn Salary). Provide a range, not a single number. Anchor high within a credible range. Example: "Based on my research and experience level, I am targeting [range]. I am open to discussing the full compensation package including equity and benefits." Avoid revealing your current salary if not required by law.
+
+=== GENERAL INTERVIEW PREPARATION ===
+
+STAR Framework:
+- Situation: set the context concisely
+- Task: describe your specific responsibility
+- Action: explain what YOU did (use "I" not "we")
+- Result: quantify the outcome wherever possible
+
+General Tips:
+- Prepare 6-8 strong STAR stories covering different competencies (leadership, conflict, failure, success, learning, teamwork)
+- Research the company: mission, products, recent news, engineering culture, tech stack
+- Prepare intelligent questions for the interviewer: team structure, technical challenges, onboarding
+- Practice out loud, not just in your head — speaking under pressure requires practice
+- Send a thank-you note after the interview referencing specific conversation points
+- Know your resume perfectly — be ready to expand on every bullet point
+- Match your energy and communication style to the company culture
+- Be honest about what you do not know — offer to follow up or reason through the problem
+- Demonstrate genuine enthusiasm for the role and company
+- Arrive early (virtual: test audio/video), professional attire appropriate to company culture

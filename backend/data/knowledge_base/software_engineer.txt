@@ -1,0 +1,72 @@
+Software Engineer Technical Interview Questions and Guidance
+
+ROLE: Software Engineer
+CATEGORY: Technical
+DIFFICULTY: Entry to Senior
+
+=== DATA STRUCTURES AND ALGORITHMS ===
+
+Q: Explain the difference between an array and a linked list. When would you use each?
+A: Arrays store elements in contiguous memory, providing O(1) random access but O(n) insertion/deletion. Linked lists store elements in nodes with pointers, giving O(n) access but O(1) insertion/deletion at head. Use arrays when you need random access or cache locality. Use linked lists when you need frequent insertions/deletions and do not require random access.
+
+Q: What is Big O notation and why does it matter?
+A: Big O notation describes the upper bound of algorithm complexity in terms of time or space as input size grows. It helps engineers choose the most efficient approach for a given problem. Common complexities: O(1) constant, O(log n) logarithmic, O(n) linear, O(n log n) quasi-linear, O(n²) quadratic. For a Software Engineer, understanding time/space tradeoffs is fundamental to writing scalable code.
+
+Q: Describe how a hash table works and what makes a good hash function.
+A: A hash table maps keys to values via a hash function that converts a key into an array index. A good hash function distributes keys uniformly, is deterministic, and fast to compute. Collisions are resolved through chaining (linked lists at each bucket) or open addressing (probing for next empty slot). Average O(1) lookup, O(n) worst case with many collisions.
+
+Q: What is the difference between BFS and DFS? When would you use each?
+A: BFS (Breadth-First Search) explores level by level using a queue, finding shortest paths in unweighted graphs. DFS (Depth-First Search) explores as deep as possible using a stack or recursion, useful for cycle detection, topological sort, and maze solving. Use BFS for shortest path and level-order traversal. Use DFS for connectivity, cycle detection, and tree traversals.
+
+Q: How would you detect a cycle in a linked list?
+A: Use Floyd's Tortoise and Hare algorithm: maintain two pointers, slow moves one step and fast moves two steps. If they meet, a cycle exists. If fast reaches null, no cycle. Time O(n), space O(1). Alternative: use a hash set to track visited nodes, O(n) time and space.
+
+=== OBJECT-ORIENTED PROGRAMMING ===
+
+Q: Explain the four principles of OOP with examples.
+A: Encapsulation: bundling data and methods, hiding internal state (private fields with getters/setters). Abstraction: exposing only necessary interfaces, hiding implementation details (abstract classes, interfaces). Inheritance: child classes derive properties from parent classes, enabling code reuse. Polymorphism: objects of different types respond to the same interface differently (method overriding, overloading).
+
+Q: What is the SOLID principle? Explain each component.
+A: Single Responsibility: a class should have one reason to change. Open/Closed: open for extension, closed for modification. Liskov Substitution: subclasses should be substitutable for their base class. Interface Segregation: clients should not depend on interfaces they do not use. Dependency Inversion: depend on abstractions, not concretions. SOLID leads to maintainable, testable, extensible code.
+
+Q: What is a design pattern? Describe three commonly used patterns.
+A: Design patterns are reusable solutions to common software design problems. Singleton: ensures only one instance of a class exists (logging, configuration). Factory Method: creates objects without specifying exact class (flexible object creation). Observer: defines one-to-many dependency so dependents are notified of changes (event systems, MVC). Strategy: defines a family of algorithms and makes them interchangeable (sorting, payment methods).
+
+=== SYSTEM DESIGN ===
+
+Q: How would you design a URL shortener like bit.ly?
+A: Key components: API layer to accept long URLs and return short codes; hash function (base62 encoding of ID) to generate short codes; database to store mapping (id, short_code, original_url, created_at); redirect service that looks up short code and redirects. Scale considerations: caching frequent URLs in Redis, database sharding, CDN for global latency. Handle collisions, expiration, analytics.
+
+Q: What is the difference between horizontal and vertical scaling?
+A: Vertical scaling adds more resources (CPU, RAM) to an existing server. Simpler but has hardware limits. Horizontal scaling adds more servers and distributes load. More complex but virtually unlimited. Horizontal scaling requires stateless services, load balancers, and distributed data storage. Modern cloud architectures favor horizontal scaling.
+
+Q: Explain REST vs GraphQL. When would you choose each?
+A: REST uses fixed endpoints and HTTP verbs, returns fixed data shapes. Simple, cacheable, widely understood. GraphQL uses a single endpoint with typed schema, clients request exactly the data they need. Reduces over-fetching and under-fetching. Choose REST for simple CRUD APIs and when caching is critical. Choose GraphQL for complex data requirements, multiple clients with different data needs, or when reducing network roundtrips matters.
+
+=== DATABASES ===
+
+Q: What is the difference between SQL and NoSQL databases?
+A: SQL databases are relational, use structured schemas, support ACID transactions, and are best for complex queries and relationships (PostgreSQL, MySQL). NoSQL databases are non-relational, schema-flexible, and optimize for specific access patterns: document stores (MongoDB), key-value (Redis), wide-column (Cassandra), graph (Neo4j). Choose SQL for transactional systems, complex queries. Choose NoSQL for large-scale, flexible schemas, or specific data models.
+
+Q: Explain database indexing and when to use it.
+A: Indexes are data structures that improve query performance by allowing the database to find rows without scanning the entire table. B-tree indexes work for range queries and equality checks. Hash indexes for equality only. Use indexes on columns frequently used in WHERE, JOIN, ORDER BY clauses. Trade-off: indexes speed up reads but slow down writes and use storage. Avoid over-indexing OLTP tables with heavy writes.
+
+=== CONCURRENCY AND PERFORMANCE ===
+
+Q: What is the difference between a process and a thread?
+A: A process is an independent program instance with its own memory space. Threads are lightweight units of execution within a process sharing the same memory. Processes provide isolation and fault tolerance. Threads are lighter and enable parallelism within a process. Communication between processes requires IPC (pipes, sockets). Threads communicate through shared memory, requiring synchronization (mutexes, semaphores) to avoid race conditions.
+
+Q: What is deadlock and how do you prevent it?
+A: Deadlock occurs when two or more threads are blocked waiting for each other to release resources, creating a circular dependency. Four necessary conditions: mutual exclusion, hold and wait, no preemption, circular wait. Prevention: acquire locks in consistent order, use lock timeouts, use lock-free algorithms, apply deadlock detection and recovery. In databases, use optimistic locking or retry logic.
+
+PREPARATION TIPS FOR SOFTWARE ENGINEERS:
+- Practice coding on a whiteboard or without IDE assistance
+- Study time/space complexity for all common algorithms
+- Know your data structures thoroughly (arrays, linked lists, trees, graphs, hash tables, heaps, stacks, queues)
+- Review system design principles: scalability, availability, consistency
+- Prepare to explain your past projects clearly with impact metrics
+- Practice the STAR method for behavioral questions
+- Research the company's tech stack and engineering blog
+- Be ready to discuss trade-offs, not just solutions
+- Know your programming language internals (memory management, concurrency model)
+- Contribute to open source or have personal projects to discuss

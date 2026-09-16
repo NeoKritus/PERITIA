@@ -1,0 +1,64 @@
+Web Developer Interview Questions and Guidance
+
+ROLE: Web Developer (Frontend / Backend / Full-Stack)
+CATEGORY: Technical
+DIFFICULTY: Entry to Senior
+
+=== HTML AND CSS ===
+
+Q: What is the CSS box model? Explain each component.
+A: The box model describes how elements are rendered: content (the actual content), padding (space between content and border), border (surrounds padding and content), margin (space outside the border). box-sizing: content-box (default, width/height applies to content only). box-sizing: border-box (width/height includes padding and border, making layout calculations intuitive). Understanding the box model is fundamental to debugging layout issues.
+
+Q: Explain CSS specificity and how it affects style application.
+A: Specificity determines which CSS rule applies when multiple rules match an element. Calculated as (a, b, c): a = inline styles, b = ID selectors, c = class/attribute/pseudo-class selectors, element/pseudo-element selectors. Higher specificity wins. Equal specificity: last rule wins (cascade). !important overrides all (use sparingly). Tips: prefer classes over IDs for styling, avoid !important except for utility classes, use BEM methodology to maintain manageable specificity.
+
+Q: What is flexbox vs CSS Grid? When do you use each?
+A: Flexbox is one-dimensional, best for laying out items along a single row or column. Use for navigation bars, centering elements, distributing space within a component. CSS Grid is two-dimensional, best for page-level layouts with rows and columns simultaneously. Use for overall page structure, complex card layouts, overlapping elements. They work well together: Grid for the overall layout, Flexbox within grid cells.
+
+=== JAVASCRIPT ===
+
+Q: Explain event bubbling and event capturing in JavaScript.
+A: Event bubbling: events propagate from the target element up through its ancestors (child to parent). Event capturing (trickling): events propagate from the document root down to the target before reaching it. addEventListener third parameter: false (default) for bubbling, true for capturing. stopPropagation() prevents further propagation. Event delegation leverages bubbling by attaching a single listener on a parent to handle events from many children, improving performance and handling dynamically added elements.
+
+Q: What is the difference between var, let, and const?
+A: var: function-scoped, hoisted (initialized as undefined), can be re-declared. Avoid in modern code. let: block-scoped, hoisted but in temporal dead zone (ReferenceError if accessed before declaration), can be reassigned. const: block-scoped, must be initialized at declaration, cannot be reassigned (but object properties can be mutated). Use const by default; use let when you need reassignment; never use var in new code.
+
+Q: Explain promises and async/await in JavaScript.
+A: Promises represent eventual completion or failure of an asynchronous operation. States: pending, fulfilled, rejected. .then() handles fulfillment, .catch() handles rejection, .finally() runs regardless. async/await is syntactic sugar over promises: async functions always return a promise, await pauses execution until the promise settles, making async code readable like synchronous code. Error handling with try/catch. Promise.all() runs promises in parallel. Use async/await for clarity; understand promises for advanced patterns like retry logic.
+
+Q: What is the JavaScript event loop and how does it work?
+A: JavaScript is single-threaded with a non-blocking event loop. Call stack executes synchronous code. Web APIs (setTimeout, fetch, DOM events) handle async operations off-thread. When complete, callbacks are pushed to the task queue (macrotasks) or microtask queue (promises, queueMicrotask). Event loop: when call stack is empty, processes all microtasks, then one macrotask, then all microtasks again. Understanding the event loop explains why console.log after setTimeout runs first, and how to avoid blocking the UI.
+
+=== REACT ===
+
+Q: Explain the React component lifecycle and hooks equivalent.
+A: Class component lifecycle: constructor → render → componentDidMount → (updates: shouldComponentUpdate → render → componentDidUpdate) → componentWillUnmount. Hooks equivalents: useState for state, useEffect(() => {...}, []) for componentDidMount, useEffect(() => {...}, [deps]) for componentDidUpdate, useEffect return function for componentWillUnmount. Prefer functional components and hooks in modern React. useCallback and useMemo prevent unnecessary re-renders.
+
+Q: What is the Virtual DOM and how does React's reconciliation work?
+A: The Virtual DOM is a lightweight JavaScript representation of the actual DOM. When state changes, React creates a new virtual DOM tree and diffs it against the previous one (reconciliation). Only the changed nodes are updated in the real DOM (patching). This avoids expensive full DOM re-renders. React uses keys to identify list items efficiently. React Fiber is the reconciliation engine enabling interruptible rendering and concurrent features.
+
+Q: How do you manage state in a large React application?
+A: Options: local state (useState) for component-specific data, context API (useContext) for moderate shared state avoiding prop drilling, state management libraries for complex global state. Redux: unidirectional data flow, time-travel debugging, good for complex state with many actions. Zustand: simpler API, less boilerplate. React Query / TanStack Query: for server state (fetching, caching, synchronizing). Rule of thumb: keep state as local as possible; lift only when necessary; use a dedicated state library only when context becomes unwieldy.
+
+=== BACKEND AND WEB FUNDAMENTALS ===
+
+Q: Explain HTTP vs HTTPS. What happens in a TLS handshake?
+A: HTTP is plaintext, vulnerable to eavesdropping and MITM attacks. HTTPS encrypts communication using TLS. TLS handshake: client sends ClientHello (supported cipher suites, TLS version). Server sends ServerHello + certificate (public key + signed by CA). Client verifies certificate against trusted CAs. Client generates pre-master secret, encrypts with server public key. Both derive session keys from pre-master secret. Subsequent communication encrypted with session key. HTTPS provides confidentiality, integrity, and authentication.
+
+Q: What is CORS and why does it exist?
+A: Cross-Origin Resource Sharing is a browser security mechanism restricting web pages from making requests to a different domain than the one that served the page (same-origin policy). CORS allows servers to specify which origins are permitted via response headers (Access-Control-Allow-Origin, Access-Control-Allow-Methods). Preflight requests (OPTIONS) check permissions before actual requests. Bypass in development with proxy; configure properly in production. Never use wildcard (*) with credentials.
+
+Q: What is the difference between authentication and authorization?
+A: Authentication verifies identity (who are you?): username/password, OAuth, JWT, biometrics. Authorization determines permissions (what can you do?): role-based access control (RBAC), attribute-based (ABAC). Common flow: user authenticates → receives token (JWT) → includes token in requests → server validates token (authentication) and checks permissions (authorization). JWT contains claims (user ID, roles) signed by the server; the server verifies signature without database lookup on each request.
+
+PREPARATION TIPS FOR WEB DEVELOPERS:
+- Build and deploy real projects (portfolio website, full-stack CRUD app, API integration)
+- Know your framework deeply: React, Vue, or Angular internals, not just surface API
+- Understand web performance: Core Web Vitals, code splitting, lazy loading, image optimization
+- Practice CSS layouts: flexbox and grid puzzles on cssgridgarden.com and flexboxfroggy.com
+- Know browser DevTools for debugging, network inspection, and performance profiling
+- Understand web security: XSS, CSRF, SQL injection, and how to prevent them
+- Learn testing: unit tests (Jest), integration tests (React Testing Library), E2E (Cypress or Playwright)
+- Understand REST API design principles and HTTP status codes
+- Know Git workflow: branching, merge vs rebase, pull request workflow
+- Study web accessibility (WCAG): semantic HTML, ARIA roles, keyboard navigation

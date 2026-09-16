@@ -1,0 +1,63 @@
+Data Analyst Interview Questions and Guidance
+
+ROLE: Data Analyst
+CATEGORY: Technical and Behavioral
+DIFFICULTY: Entry to Senior
+
+=== SQL AND DATA QUERYING ===
+
+Q: Write a query to find the second highest salary from an employees table.
+A: SELECT MAX(salary) FROM employees WHERE salary < (SELECT MAX(salary) FROM employees);
+Alternative using window functions: SELECT salary FROM (SELECT salary, DENSE_RANK() OVER (ORDER BY salary DESC) as rnk FROM employees) t WHERE rnk = 2;
+Window functions are preferred in modern SQL as they handle ties correctly and are more readable.
+
+Q: Explain the difference between INNER JOIN, LEFT JOIN, RIGHT JOIN, and FULL OUTER JOIN.
+A: INNER JOIN returns only matching rows from both tables. LEFT JOIN returns all rows from the left table and matching rows from the right (nulls for non-matches). RIGHT JOIN is the opposite. FULL OUTER JOIN returns all rows from both tables, with nulls where no match exists. In analytics, LEFT JOIN is most common when you want to retain all records from a primary table regardless of whether related data exists.
+
+Q: What are window functions and when do you use them?
+A: Window functions perform calculations across a set of rows related to the current row without collapsing them into groups (unlike GROUP BY). Common window functions: ROW_NUMBER(), RANK(), DENSE_RANK() for ranking; LAG(), LEAD() for accessing previous/next row values; SUM(), AVG() OVER() for running totals and moving averages. Essential for time-series analysis, cohort analysis, and ranking within groups.
+
+Q: How would you identify and handle duplicate records in a dataset?
+A: First, identify duplicates using GROUP BY with HAVING COUNT(*) > 1. Then decide deduplication strategy: keep first/last occurrence (ROW_NUMBER partitioned by key columns), keep most complete record, or flag and investigate. In SQL: DELETE FROM table WHERE id NOT IN (SELECT MIN(id) FROM table GROUP BY key_columns). Document the deduplication logic and business rules applied.
+
+=== STATISTICS AND ANALYTICS ===
+
+Q: Explain the difference between mean, median, and mode. When is each appropriate?
+A: Mean is the arithmetic average, sensitive to outliers. Median is the middle value, robust to outliers. Mode is the most frequent value, useful for categorical data. Use mean for symmetric distributions without outliers (test scores, heights). Use median for skewed distributions or when outliers exist (income, home prices). Use mode for categorical data or when the most common value is relevant (shoe sizes, product categories).
+
+Q: What is A/B testing and how do you determine if results are statistically significant?
+A: A/B testing compares two variants (control and treatment) to measure impact on a metric. To determine significance: define hypothesis (H0: no difference, H1: difference exists), choose significance level (typically α=0.05), run test for predetermined sample size, calculate p-value. If p-value < α, reject null hypothesis. Also check effect size (practical significance) and confidence intervals. Common pitfalls: peeking at results early (p-hacking), underpowered tests, novelty effect, multiple testing problem.
+
+Q: What is the difference between correlation and causation? Give an example.
+A: Correlation means two variables tend to move together. Causation means one variable directly causes changes in another. Example: ice cream sales and drowning rates are positively correlated (both increase in summer) but ice cream does not cause drowning; hot weather is a confounding variable. To establish causation: use randomized controlled experiments, instrumental variables, or difference-in-differences analysis. Analysts must avoid claiming causation from observational data alone.
+
+Q: Explain data normalization and when you should normalize vs denormalize.
+A: Normalization organizes data to reduce redundancy and improve data integrity (1NF, 2NF, 3NF). Denormalization intentionally adds redundancy to improve query performance. Normalize for OLTP systems where data integrity and write performance matter. Denormalize for analytical/OLAP workloads where read performance and simple queries are prioritized. Data warehouses typically use star schema (fact table + dimension tables) which is a controlled denormalization.
+
+=== DATA VISUALIZATION AND COMMUNICATION ===
+
+Q: What makes a good data visualization? Walk me through your design principles.
+A: Good visualizations are accurate (data is not distorted), clear (easy to understand in 5 seconds), relevant (show what matters for the decision), and honest (do not mislead). Principles: choose the right chart type for the data (bar for categories, line for trends, scatter for relationships), minimize chart junk, use color purposefully not decoratively, label axes and include units, provide context with benchmarks or targets. The goal is insight, not aesthetics.
+
+Q: How do you present complex analysis to a non-technical stakeholder?
+A: Lead with the business insight and recommendation, not the methodology. Use plain language, avoid jargon. Visualize the key finding simply. Provide context: is this number good or bad? Compared to what? Structure as: situation → finding → recommendation → confidence level. Prepare to go deeper if asked but start at the summary level. Use analogies to explain statistical concepts. Practice the "so what?" test for every slide.
+
+=== TOOLS AND TECHNOLOGIES ===
+
+Q: Explain the difference between pandas groupby and SQL GROUP BY.
+A: Both group data and apply aggregate functions. SQL GROUP BY is declarative and optimized by the database engine. Pandas groupby is programmatic and flexible, supporting complex aggregations, custom functions, and multiple output formats. Pandas groupby returns a GroupBy object; you apply functions like .sum(), .mean(), .agg({'col': ['min', 'max']}). Pandas is more flexible for complex multi-step transformations; SQL is better for large datasets and when data lives in a database.
+
+Q: What is the difference between batch processing and stream processing?
+A: Batch processing collects data over a period and processes it at once (nightly ETL jobs, monthly reports). Stream processing handles data in near real-time as it arrives (fraud detection, live dashboards). Batch is simpler, more efficient for historical analysis. Streaming adds latency requirements and infrastructure complexity. Tools: batch (Spark, Hadoop, SQL), streaming (Kafka, Flink, Spark Streaming). Many systems use lambda architecture combining both.
+
+PREPARATION TIPS FOR DATA ANALYSTS:
+- Practice SQL daily on platforms like LeetCode, Mode Analytics, or StrataScratch
+- Be ready to discuss a complete analysis project end-to-end (problem → data → analysis → insight → action)
+- Know Excel, SQL, Python (pandas, matplotlib) and at least one BI tool (Tableau, Power BI, Looker)
+- Prepare to discuss data cleaning challenges and how you handled them
+- Understand business metrics relevant to the industry you are targeting
+- Practice explaining technical concepts to non-technical audiences
+- Know the difference between descriptive, diagnostic, predictive, and prescriptive analytics
+- Be ready to discuss data quality issues you have encountered
+- Demonstrate curiosity about the business, not just the data
+- Quantify your past impact: "my analysis identified $X in savings" or "my dashboard reduced reporting time by Y%"
