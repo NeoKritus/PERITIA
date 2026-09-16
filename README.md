@@ -1,4 +1,4 @@
-# PERITIA — AN AI-POWERED RAG-BASED INTELLIGENT INTERVIEW TRAINER AGENT FOR PERSONALIZED, ROLE-SPECIFIC TECHNICAL AND BEHAVIORAL INTERVIEW PREPARATION
+# PERITIA — An AI-Powered RAG-Based Intelligent Interview Trainer Agent for Personalized, Role-Specific Technical and Behavioral Interview Preparation
 
 An intelligent, end-to-end interview preparation platform that combines **Retrieval-Augmented Generation (RAG)** with **IBM watsonx.ai** foundation models to deliver personalized, role-specific technical and behavioral interview training.
 
